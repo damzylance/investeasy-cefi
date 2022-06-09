@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,500;0,600;0,700;1,600&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400&display=swap");
+
+.dashLayout {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.dashContainer {
+  flex: 6;
+  background-color: #e2e8f0;
+  overflow: scroll;
+}
+.navbar {
+  flex: 2;
+}
+.dashWrapper {
+  width: 90%;
+  margin: 40px auto;
+}

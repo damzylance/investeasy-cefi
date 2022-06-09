@@ -1,0 +1,55 @@
+.otpBox {
+  display: flex;
+  background-color: azure;
+  flex-direction: column;
+  height: 100vh;
+}
+.backIcon {
+  font-size: 18px;
+  margin: 30px;
+  text-align: left;
+}
+.otpInputWrapper {
+  justify-content: center;
+  width: 400px;
+  margin: 0 auto;
+}
+.otpField {
+  width: 50px;
+  height: 50px;
+  margin: 6px;
+  font-size: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #00395e;
+  outline: none;
+}
+.otpLogo img {
+  height: 267px;
+  margin-right: 4px;
+  object-fit: contain;
+  width: 267px;
+}
+.resend {
+  background-color: aliceblue;
+  color: #00395e;
+  border: 1px solid #00395e;
+}
+.resend:hover {
+  color: #fff;
+}
+button {
+  margin: 15px 0;
+  width: 300px;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+/* input[type="number"] {
+  -moz-appearance: textfield;
+} */
