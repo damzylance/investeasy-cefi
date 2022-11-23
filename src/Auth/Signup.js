@@ -1,11 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Otpbox from "./Otpbox";
 import "./auth.css";
 import "./otpbox.css";
 import envelope from "./images/opened-envelopea-1@2x.png";
+import { message } from "antd";
 
 function Signup() {
   const {
@@ -13,8 +15,11 @@ function Signup() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const errorLength = Object.keys(errors).length;
   const navigate = useNavigate();
+  const [successMsg, setSuccessMsg] = useState("");
+  const [resError, setResError] = useState(null);
 
   return (
     <div className="authContainer">
@@ -31,9 +36,20 @@ function Signup() {
             method="post"
             onSubmit={handleSubmit((data) => {
               if (errorLength < 1) {
-                //post data
-
-                navigate("/register/otp");
+                console.log(data);
+                axios
+                  .post("http://127.0.0.1:8000/api/core/register/", data)
+                  .then(function (response) {
+                    setSuccessMsg(
+                      "Registration successful, complete otp verification"
+                    );
+                    setTimeout(() => {
+                      navigate("/register/otp");
+                    }, 3000);
+                  })
+                  .catch(function (error) {
+                    setResError(error.response.data.email[0]);
+                  });
               }
             })}
           >
@@ -42,28 +58,29 @@ function Signup() {
               <input
                 type="text"
                 id="firstName"
-                {...register("firstName", {
+                {...register("firstname", {
                   required: "This field is required",
                 })}
                 placeholder="First Name"
               />
-              <p className="errorMessage">{errors.firstName?.message}</p>
+              <p className="errorMessage">{errors.firstname?.message}</p>
             </div>
             <div className="input-block">
               <label htmlFor="lastName">Last Name</label>
               <input
                 type="text"
                 id="lastName"
-                {...register("lastName", {
+                {...register("lastname", {
                   required: "This field is required",
                 })}
                 placeholder="Last Name"
               />
-              <p className="errorMessage">{errors.lastName?.message}</p>
+              <p className="errorMessage">{errors.lastname?.message}</p>
             </div>
             <div className="input-block">
               <label htmlFor="email">Email</label>
               <input
+                onClick={() => setResError("")}
                 type="text"
                 {...register("email", {
                   required: "Provide valid email address",
@@ -111,6 +128,8 @@ function Signup() {
               />
               <p className="errorMessage">{errors.password?.message}</p>
             </div>
+            <p className="errorMessage">{resError}</p>
+            <p className="errorMessage">{successMsg}</p>
             <div className="btn-container">
               <button type="submit">Continue</button>
             </div>

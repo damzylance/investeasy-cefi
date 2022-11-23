@@ -91,12 +91,16 @@
   border-radius: 10px;
   flex: 1;
   gap: 5px;
+  color: #00395e;
   justify-content: center;
   cursor: pointer;
 }
 .activeAction {
   background-color: #00395e;
   color: #fff;
+}
+.balance p {
+  color: #00395e;
 }
 .featuredButton:hover {
   background-color: #00395e;
@@ -191,6 +195,9 @@
   display: flex;
   text-align: right;
   gap: 20px;
+}
+.sectionFooter h2 {
+  margin: 0;
 }
 .sectionFooterIcon {
   font-size: 20px;

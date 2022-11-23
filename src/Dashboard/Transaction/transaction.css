@@ -1,0 +1,30 @@
+.transactionDetailsTitle {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  margin-bottom: 40px;
+}
+.transactionDetailsTitle h1 {
+  margin: 0;
+}
+.TransactionDetails {
+  width: 50%;
+  height: 400px;
+}
+.TransactionDetails h2 {
+  text-align: center;
+}
+
+.detialsWrapper {
+  background-color: aliceblue;
+
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.detailItem {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #91b2c9;
+}

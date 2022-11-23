@@ -1,0 +1,44 @@
+.balanceContainer {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  column-gap: 20px;
+}
+
+.nairaWallet {
+  background-color: bisque;
+  height: 200px;
+  border-radius: 10px;
+  background-color: #5191bb;
+  padding: 15px 20px;
+  box-sizing: border-box;
+}
+
+.cryptoWallet {
+  background-color: bisque;
+}
+.walletDescription {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.walletDescription .span {
+  padding: 5px;
+  background-color: #a0d4f7;
+  border-radius: 15px;
+}
+
+.balance {
+  font-size: 24px;
+  color: #e8f4fc;
+}
+.walletButtons {
+  display: flex;
+  gap: 10px;
+}
+.walletButtons button {
+  width: 120px;
+  background-color: #fff;
+  color: #5191bb !important;
+}

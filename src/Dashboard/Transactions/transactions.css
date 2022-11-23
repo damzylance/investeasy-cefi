@@ -1,0 +1,32 @@
+.tabsContainer {
+  height: 80px;
+}
+ul {
+  display: flex;
+  background-color: none;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: 0px auto;
+}
+
+.transactionTypeList li {
+  text-align: center;
+  display: block;
+  font-weight: 600;
+  color: #91b2c9;
+  cursor: pointer;
+}
+.transactionTypeList .active {
+  color: #00395e;
+  border-bottom: 3px solid #00395e;
+  background-color: transparent;
+}
+.transactionTypeList li:hover {
+  background-color: transparent;
+  color: #00395e;
+  border-bottom: 3px solid #91b2c9;
+}
+.transactionsListContainer {
+  width: 90%;
+  margin: 0px auto;
+}

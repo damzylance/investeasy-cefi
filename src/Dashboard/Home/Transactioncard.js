@@ -1,5 +1,7 @@
 import React from "react";
 import { AiFillCalculator } from "react-icons/ai";
+import { GrAtm } from "react-icons/gr";
+
 function Transactioncard(props) {
   return (
     <div className="transaction">
@@ -15,11 +17,10 @@ function Transactioncard(props) {
             }}
           >
             {props.typeIcon}
-            <AiFillCalculator />
           </div>
           <div className="typeDetails">
             <h2 className="typeTitle">{props.typeTitle}</h2>
-            <p className="transactionDate">{props.Date} April 1, 10:00pm</p>
+            <p className="transactionDate">{props.Date} </p>
           </div>
         </div>
       </div>
@@ -33,9 +34,9 @@ function Transactioncard(props) {
                 : "#63a663",
           }}
         >
-          {props.value}1.0 BNB
+          {props.value} BNB
         </h2>
-        <p className="nairaValue">N1,000,000{}</p>
+        <p className="nairaValue">N1,00{}</p>
       </div>
     </div>
   );

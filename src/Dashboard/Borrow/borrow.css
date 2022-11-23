@@ -1,14 +1,69 @@
-.ant-select {
-  box-sizing: border-box;
+.dashWrapper {
+}
+.optionWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.currencyName {
+  display: flex;
+  flex-direction: column;
+}
+.currencyName p {
   margin: 0;
-  padding: 0;
-  color: rgba(0, 0, 0, 0.85);
-  font-size: 14px;
-  font-variant: tabular-nums;
-  line-height: 1.5715;
-  list-style: none;
-  font-feature-settings: "tnum", "tnum";
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
+}
+.ant-select {
+  height: 80px;
+}
+.ant-select-selector {
+  height: 80px;
+}
+
+.ant-select-selection-item {
+  height: 80px;
+}
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #00395e;
+}
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  height: 72px !important;
+}
+.ant-row {
+  display: block !important;
+}
+label {
+  font-size: 16px !important;
+}
+.equalHalves {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+}
+.fieldWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.inputWrapper {
+  display: flex;
+  width: 100%;
+  background-color: #fff;
+  align-items: center;
+  padding: 10px;
+}
+.inputWrapper input {
+  outline: none;
+  border: none;
+  height: 40px;
+  width: 100%;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+span {
+  margin-right: 10px;
+  font-weight: 700;
+  font-size: 16px;
 }

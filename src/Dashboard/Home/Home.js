@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import bitcoinLogo from "./logos/bitcoin-logo.svg";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import axios from "axios";
 import ethLogo from "./logos/eth-logo.svg";
 import bnbLogo from "./logos/bnb-logo.svg";
 import solLogo from "./logos/sol-logo.svg";
@@ -10,32 +14,65 @@ import {
   AiFillBank,
   AiOutlineSwap,
   AiFillFileText,
-  AiFillAccountBook,
   AiOutlineSearch,
-  AiFillCheckCircle,
-  AiOutlineCheck,
   AiOutlineCheckCircle,
 } from "react-icons/ai";
+import { BsCashCoin } from "react-icons/bs";
 import { RiRefundFill } from "react-icons/ri";
 import { FaMoneyCheckAlt, FaChevronCircleRight } from "react-icons/fa";
 import "./home.css";
 import borrowCrypto from "./images/borrowcrypto.png";
 import kycImage from "./images/kycsecurity.png";
 import Transactioncard from "./Transactioncard";
+import Header from "../Globalcomponents/Header/Header";
 function Home() {
+  const navigate = useNavigate();
+  // const token = localStorage.getItem("token");
+  // const [kycStatus, setKycStatus] = useState(true);
+  // const [transactions, setTransactions] = useState([]);
+
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // };
+  // useEffect(() => {
+  //   axios
+  //     .get("http://127.0.0.1:2000/login", config)
+  //     .then(function (response) {
+  //       console.log(response.data);
+  //       setKycStatus(response.data.is_kyc_verified);
+  //       setTransactions(response.data.transactions);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //       navigate("/login");
+  //     });
+  // }, []);
+  // const recentTransactions = transactions.map((transaction) => {
+  //   let recentTransaction;
+  //   if (transaction.borrowdetails) {
+  //     recentTransaction = transaction.borrowdetails;
+  //     recentTransaction.title = "Borrow";
+  //     recentTransaction.icon = BsCashCoin();
+  //   } else if (transaction.withdrawaldetails) {
+  //     recentTransaction = transaction.withdrawaldetails;
+  //     recentTransaction.title = "Withdraw";
+  //     recentTransaction.icon = BsCashCoin();
+  //   }
+
+  //   recentTransaction.date = new Date(transaction.created_on)
+  //     .toString()
+  //     .slice(0, 21);
+
+  //   return recentTransaction;
+  // });
+  // console.log(recentTransactions);
+
   return (
     <section className="dashContainer">
+      <Header backgroundColor="#fff" color="#00395e" />
       <div className="dashWrapper">
-        <div className="header">
-          <div className="avatarWrapper">
-            <div className="avatar">WA</div>
-            <div className="avatarText">Damzylance</div>
-          </div>
-          <div className="notificationIcons">
-            <AiFillCustomerService className="icon" />
-            <AiFillBell className="icon" />
-          </div>
-        </div>
         <div className="main">
           <div className="borrowCard">
             <div className="borrowTexts">
@@ -51,8 +88,7 @@ function Home() {
           <div className="balanceCard">
             <div className="balanceTitle">Portfolio Overview</div>
             <div className="balance">
-              <p>Portfolio Balance</p>
-              <div className=" value">₦5,000,000</div>
+              <p>₦5,000,000</p>
             </div>
           </div>
         </div>
@@ -74,6 +110,7 @@ function Home() {
             Swap
           </div>
         </div>
+
         <div className="kycWrapper">
           <div className="kycLeft">
             <div className="kycImage">
@@ -87,21 +124,24 @@ function Home() {
             </div>
           </div>
           <div className="kycRight">
-            <FaChevronCircleRight />
+            <Link to="/dashboard/profile/kyc">
+              <FaChevronCircleRight />
+            </Link>
           </div>
         </div>
+
         <div className="section">
           <div className="sectionTitle">
-            <h1>Recent Transaction</h1>
+            <h1>Recent Transactions</h1>
             <AiFillFileText className="sectionIcon" />
           </div>
           <div className="transactionsContainer">
-            <Transactioncard typeTitle={"Borrow"} transactionValue={5000} />
-            <Transactioncard typeTitle={"Withdraw"} transactionValue={5000} />
-            <Transactioncard typeTitle={"Borrow"} transactionValue={5000} />
-            <Transactioncard typeTitle={"Withdraw"} transactionValue={5000} />
-            <Transactioncard typeTitle={"Borrow"} transactionValue={5000} />
-            <Transactioncard typeTitle={"Withdraw"} transactionValue={5000} />
+            <Transactioncard
+              Date={new Date().toDateString()}
+              typeTitle={"withdrawal"}
+              value={"14"}
+              typeIcon={bitcoinLogo}
+            />
           </div>
           <div className="sectionFooter">
             <h2>View All</h2>
@@ -169,9 +209,10 @@ function Home() {
             </div>
           </div>
           <div className="sectionFooter">
-            <h2>View more crypto</h2>
-
-            <FaChevronCircleRight className="sectionFooterIcon" />
+            <Link to="/transactions" className="sectionFooter">
+              <h2>View more crypto</h2>
+              <FaChevronCircleRight className="sectionFooterIcon" />
+            </Link>
           </div>
         </div>
       </div>

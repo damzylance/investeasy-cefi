@@ -1,0 +1,27 @@
+.bankCard {
+  background-color: #5191bb;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 220px;
+  width: 400px;
+  margin-top: 30px;
+  border-radius: 15px;
+  padding: 10px 20px;
+  color: #fff;
+  background-image: url("bankbg.svg");
+  background-repeat: no-repeat;
+  background-position: right 0px bottom 2px;
+}
+.bankCard h3 {
+  text-align: center;
+  color: #fff;
+}
+.accountNumber {
+  text-align: right;
+}
+
+.addCard {
+  margin-top: 30px;
+  width: 500px;
+}

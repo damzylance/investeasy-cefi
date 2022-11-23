@@ -1,0 +1,66 @@
+.kycFormContent {
+  width: 600px;
+  margin-bottom: 50px;
+  height: 350px;
+}
+.kycFormHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.kycFormHeader h1 {
+  margin: 0;
+}
+.kycInputBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.kycInputBlock label {
+  font-weight: 500;
+}
+
+.kycInputBlock input {
+  outline: none;
+  background-color: #fff;
+  height: 40px;
+  border: none;
+  padding-left: 10px;
+}
+
+select {
+  height: 40px;
+  padding: 10px;
+  border: 0px;
+  outline: none;
+}
+
+.phoneContainer {
+  display: flex;
+  gap: 20px;
+  background-color: #fff;
+}
+.formProgress {
+  margin: 20px auto;
+  display: flex;
+  gap: 20px;
+  width: 200px;
+}
+
+.bar {
+  width: 20px;
+  height: 20px;
+  border-bottom: 4px solid #a5cbe6;
+  cursor: pointer;
+}
+.activebar {
+  border-bottom: 4px solid #00395e;
+  width: 20px;
+  height: 20px;
+}
+.kycButtons {
+  display: flex;
+  gap: 40px;
+}

@@ -1,0 +1,36 @@
+.currencyCard {
+  width: 80%;
+  margin: 40px 0;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+}
+.currencyDetails {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 2;
+}
+.currencyLogo img {
+  width: 40px;
+}
+.coinTicker {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.coinBalance {
+  text-align: right;
+  flex: 2;
+}
+.coinBalance .coinUnit {
+  font-size: 16px;
+  font-weight: 600;
+}
+.BsChevronRight {
+  flex: 0.2;
+  text-align: right;
+  font-weight: 600;
+}

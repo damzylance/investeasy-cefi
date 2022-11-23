@@ -1,20 +1,21 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "./auth.css";
 
 function Signin() {
-  const [values, setValues] = useState("");
-  const [error, setErrors] = useState("");
-  const handleInputChange = () => {};
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  const errorLength = Object.keys(errors).length;
+  const [token, setToken] = useState(null);
+  const navigate = useNavigate();
+  const [successMsg, setSuccessMsg] = useState("");
+  const [resError, setResError] = useState(null);
   return (
     <div className="authContainer">
       <div className="bannerWrapper">
@@ -29,7 +30,29 @@ function Signin() {
             action=""
             method="post"
             onSubmit={handleSubmit((data) => {
-              console.log(data);
+              if (errorLength < 1) {
+                axios
+                  .post("http://127.0.0.1:8000/api/core/token/", data)
+                  .then(function (response) {
+                    const myToken = response.data.access;
+                    const fullname = response.data.fullname;
+                    let alias = fullname.split(" ");
+                    const userAlias = alias.map((item) => {
+                      return item[0];
+                    });
+                    alias = userAlias.join("");
+
+                    const email = response.data.email;
+                    // console.log(response.data.access, myToken);
+                    localStorage.setItem("token", myToken);
+                    localStorage.setItem("alias", alias);
+                    localStorage.setItem("email", email);
+                    navigate("/dashboard/home");
+                  })
+                  .catch(function (error) {
+                    setResError(error.response.data.detail);
+                  });
+              }
             })}
           >
             <div className="input-block">
@@ -44,8 +67,6 @@ function Signin() {
                   },
                 })}
                 id="email"
-                value={values.email}
-                // onChange={handleInputChange}
               />
               <p className="errorMessage">{errors.email?.message}</p>
             </div>
@@ -64,11 +85,12 @@ function Signin() {
                   minLength: { value: 8, message: "Minumum length is 8" },
                 })}
                 id="password"
-                value={values.password}
+
                 // onChange={handleInputChange}
               />
               <p className="errorMessage">{errors.password?.message}</p>
             </div>
+            <div className="errorMessage">{resError}</div>
             <div className="forgot">
               <Link to="/passwordreset">Forgot password?</Link>
             </div>
@@ -76,7 +98,7 @@ function Signin() {
               <button type="submit">Login</button>
             </div>
           </form>
-          <div className="error">{error}</div>
+
           <div className="have-account">
             New to InvestEasy? <Link to="/register">Sign up</Link>
           </div>

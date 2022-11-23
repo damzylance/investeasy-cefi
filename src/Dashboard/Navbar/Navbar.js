@@ -21,17 +21,23 @@ function Navbar() {
     <div className="navbar">
       <div className="navbarWrapper">
         <div className="primaryNav">
-          <li
-            className={
-              splitLocation[2] === "home" && "borrow" ? "active" : "notAcive"
-            }
-          >
+          <li className={splitLocation[2] === "home" ? "active" : "notAcive"}>
             <Link to="/dashboard/home">
               <div className="linkWrapper">
                 <div className="linkIcon">
                   <AiFillHome />
                 </div>
                 <div className="linkText">Home</div>
+              </div>
+            </Link>
+          </li>
+          <li className={splitLocation[2] === "borrow" ? "active" : "notAcive"}>
+            <Link to="/dashboard/borrow">
+              <div className="linkWrapper">
+                <div className="linkIcon">
+                  <AiFillWallet />
+                </div>
+                <div className="linkText">Borrow</div>
               </div>
             </Link>
           </li>
